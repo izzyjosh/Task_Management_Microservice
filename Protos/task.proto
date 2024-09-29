@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+
+service TaskService {
+	rpc CreateTask(TaskCreateRequest) returns (TaskCreateResponse);
+	rpc GetTask(TaskGetRequest) returns (TaskCreateResponse);
+
+}
+
+message TaskGetRequest {
+	int32 id = 1;
+}
+message TaskCreateResponse {
+	int32 id = 1;
+	string title = 2;
+	string description = 3;
+	string status = 4;
+}
+
+message TaskCreateRequest {
+	string title = 1;
+	string description = 2;
+}
+message TaskErrorResponse {
+	string type = 1;
+	string detail = 2;
+}
